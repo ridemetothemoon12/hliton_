@@ -1,0 +1,360 @@
+@charset "utf-8";
+
+* {
+    padding: 0;
+    margin: 0;
+}
+ul {
+    list-style: none;
+}
+a {
+    text-decoration: none;
+    color: white;
+}
+@mixin flex($wrap, $just) {
+    display: flex;
+    flex-wrap: $wrap;
+    justify-content: $just;
+}
+@mixin size($w, $h) {
+    width: $w;
+    height: $h;
+}
+@mixin absolute($t, $l) {
+    top: $t;
+    left: $l;
+}
+@mixin content_title {
+    margin: 175px 0 0 370px;
+    width: 80%;
+    font-size: 36px;
+}
+@mixin content_btn {
+    @include size(220px, 50px);
+    margin-top: 70px;
+    background-color: rgba(201, 201, 195, 0.1);
+    border: 1px solid white;
+    text-align: center;
+    line-height: 50px;
+    font-size: 18px;
+}
+@mixin background_setting {
+    background-size: cover;
+    background-position: center;
+}
+.fp-overflow {
+    overflow: hidden;
+}
+// 헤더 네비게이션
+.nav {
+    // background-color: #999;
+    z-index: 99;
+    position: fixed;
+    @include size(100%, 70px);
+    @include flex(wrap, center);
+    .nav_wrap {
+        @include size(1200px, 70px);
+        position: fixed;
+        display: grid;
+        grid-template-columns: repeat(5, 20%);
+    }
+    .menu_left {
+        @include flex(wrap, center);
+        align-items: center;
+        ul {
+            width: 100%;
+            @include flex(wrap, space-around);
+        }
+    }
+    .logo {
+        @extend .menu_left;
+    }
+    .menu_right {
+        @extend .menu_left;
+    }
+    .icon {
+        @extend .menu_left;
+    }
+}
+// 메인 스와이퍼
+.main {
+    @include size(100%, 100%);
+    text-align: center;
+    .title {
+        position: absolute;
+        @include absolute(30%, 50%);
+        transform: translateX(-50%);
+        z-index: 9;
+    }
+    .chk {
+        z-index: 9;
+        position: absolute;
+        @include size(60%, 80px);
+        @include absolute(60%, 50%);
+        transform: translateX(-50%);
+        background-color: #072745;
+    }
+    .cat {
+        @include size(100%, 100%);
+        @include flex(wrap, space-around);
+        align-items: flex-start;
+        color: white;
+        p {
+            padding-top: 10px;
+        }
+    }
+    .swiper-slide {
+        @include size(100%, 1089px);
+    }
+    .banner1 {
+        background:url("../images/banner_main1.jpg");
+        @include background_setting;
+    }
+    .banner2 {
+        background:url("../images/banner_main2.jpg");
+        @include background_setting;
+    }
+    .banner3 {
+        background-color: beige;
+        background:url("../images/banner_main3.jpg");
+    }
+}
+// rooms
+.rooms {
+    background-color: rgb(248, 248, 248);
+    @include flex(wrap, flex-start);
+    .title {
+        @include content_title;
+    }
+    .content_wrap {
+        display: flex;
+        justify-content: space-between;
+    }
+    // 좌측 컨탠츠
+    .item_left {
+        position: relative;
+        color: white;
+        margin: 100px 0 0 380px;
+        @include size(315px, 260px);
+        z-index: 1;
+        &::before {
+            content: "";
+            position: absolute;
+            @include absolute(-55px, -380px);
+            @include size(865px, 360px);
+            background-color: #072745;
+            z-index: -1;
+            border-radius: 0 50px 50px 0;
+        }
+        h3 {
+            font-size: 26px;
+            margin-bottom: 40px;
+        }
+        p {
+            font-size: 16px;
+        }
+        .btn {
+            @include content_btn;
+        }
+    }
+    // 스와이퍼 위치 설정
+    .item_right {
+        margin: 130px 0 0 60px;
+        overflow: hidden;
+        @include size(70%, 100%);
+    }
+    // 스와이퍼 설정
+    .swiper-wrapper {
+        width: 500px;
+        height: 100%;
+        .swiper-slide {
+            @include size(850px, 530px);
+        }
+        .content1 {
+            background: url("../images/room1.jpg");
+            @include background_setting;
+        }
+        .content2 {
+            background: url("../images/room2.jpg");
+            @include background_setting;
+        }
+        .content3 {
+            background: url("../images/room3.jpg");
+            @include background_setting;
+        }
+    }
+    // 스와이퍼 불렛 설정
+    .swiper-pagination {
+        align-items: center;
+        @include flex(wrap, center);
+        margin-bottom: 90px;
+        .swiper-pagination-bullet {
+            @include size(9px, 9px);
+            background-color: #8b8888;
+            margin: 0 5px;
+        }
+        .swiper-pagination-bullet-active {
+            @include size(18px, 18px);
+            background-color: transparent;
+            border: 2px solid #8b8888;
+        }
+    }
+}
+// offer
+.offer {
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
+    url("../images/meeting.jpg");
+    @include background_setting;
+    @include flex(wrap, flex-start);
+    color: white;
+    .title {
+        @include content_title;
+    }
+    .content {
+        margin: 90px 0 0 410px;
+    }
+    // 제목 버튼 탭 --나중에 추가해야함
+    .content_title {
+        max-width: 1200px;
+        ul {
+            font-size: 21px;
+            @include flex(wrap, space-between);
+        }
+        li {
+            position: relative;
+            text-align: left;
+            width: 190px;
+            padding-left: 25px;
+            &::before {
+                content: "";
+                position: absolute;
+                @include absolute(5px, 0);
+                @include size(20px, 20px);
+                border-radius: 50%;
+                background-color: white;
+            }
+            &::after {
+                content: "";
+                position: absolute;
+                @include size(185px, 3px);
+                @include absolute(-5px, -3px);
+                background-color: white;
+            }
+        }
+    }
+    // 설명 설정
+    .description {
+        max-width: 1200px;
+        margin-top: 70px;
+        font-size: 18px;
+        .text {
+            display: none;
+            &.on {
+                display: block;
+            }
+        }
+        p {
+            &:nth-child(1) {
+                margin-bottom: 50px;
+            }
+            &:nth-child(2) {
+                width: 795px;
+            }
+        }
+    }
+    .btn {
+        @include content_btn;
+    }
+}
+// 다이닝
+.dining {
+    @include flex(wrap, flex-start);
+    .title {
+        @include content_title;
+    }
+    .content {
+        max-width: 1200px;
+        margin: 0 auto;
+        @include flex(wrap, space-between);
+        margin-top: 205px;
+    }
+    // 아이템 설정
+    .item {
+        @include size(280px, 280px);
+        @include flex(wrap, center);
+        border-radius: 50%;
+        background-color: #072745;
+        align-items: center;
+        text-align: center;
+        color: white;
+        font-size: 20px;
+        // 아이템 백그라운드 설정
+        &:nth-child(1){
+            background: url("../images/dine1.jpg");
+            @include background_setting;
+        }
+        &:nth-child(2){ 
+            background: url("../images/dine2.jpg");
+            @include background_setting;
+        }
+        &:nth-child(3){
+            background: url("../images/dine3.jpg");
+            @include background_setting;
+        }
+        &:nth-child(4){
+            background: url("../images/dine4.jpg");
+            @include background_setting;
+        }
+        p {
+            text-shadow: 1px 1px 3px black;
+        }
+    }
+}
+// 프로모션
+.promotion {
+    color: white;
+    background: url("../images/background.png");
+    @include background_setting;
+    @include flex(wrap, flex-start);
+    // 제목 설정
+    .title {
+        @include content_title;
+    }
+    .content {
+        @include size(1200px, 610px);
+        margin: 40px auto 0;
+        @include flex(wrap, flex-start);
+    }
+    .text {
+        width: 300px;
+        height: 610px;
+        background-color: white;
+        p {
+            color: black;
+        }
+    }
+    // 스와이퍼 설정
+    .swiper_content_2 {
+        @include size(900px, 610px);
+        overflow: hidden;
+        z-index: 9;
+        img {
+            @include size(900px, 610px);
+        }
+        // 스와이퍼 불렛 설정
+        .swiper-pagination {
+            align-items: center;
+            @include flex(wrap, center);
+            margin-bottom: 90px;
+            .swiper-pagination-bullet {
+                @include size(16px, 16px);
+                background-color: #8b8888;
+                margin: 0 5px;
+            }
+            .swiper-pagination-bullet-active {
+                @include size(16px, 16px);
+                background-color: #bfa986;
+            }
+        }
+    }
+}
