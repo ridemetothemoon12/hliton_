@@ -11,6 +11,15 @@ a {
     text-decoration: none;
     color: white;
 }
+
+@font-face {
+    font-family: cinzel;
+    src: url("../font/Constantine-lq0q.ttf");
+}
+@font-face {
+    font-family: nanumR;
+    src: url("../font/NanumSquareR.ttf");
+}
 @mixin flex($wrap, $just) {
     display: flex;
     flex-wrap: $wrap;
@@ -30,6 +39,7 @@ a {
     font-size: 36px;
 }
 @mixin content_btn {
+    cursor: pointer;
     @include size(220px, 50px);
     margin-top: 70px;
     background-color: rgba(201, 201, 195, 0.1);
@@ -37,21 +47,54 @@ a {
     text-align: center;
     line-height: 50px;
     font-size: 18px;
+    transition: 1s;
+    color: white;
+    p {
+        position: relative;
+        transition: 1s;
+        z-index: 1;
+        &::before {
+            content: "";
+            position: absolute;
+            background-color: #072745;
+            height: 100%;
+            width: 0;
+            top: 0;
+            left: 0;
+            transition: linear .3s;
+            z-index: -1;
+        }
+    }
+    &:hover {
+        p::before {
+            width: 100%;
+        }
+    }
 }
 @mixin background_setting {
     background-size: cover;
     background-position: center;
 }
+// 네비게이션 툴팁설정
 .fp-overflow {
     overflow: hidden;
 }
+#fp-nav ul li .fp-tooltip {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    color: white;
+    padding: 5px 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
 // 헤더 네비게이션
 .nav {
-    // background-color: #999;
     z-index: 99;
     position: fixed;
     @include size(100%, 70px);
     @include flex(wrap, center);
+    // display: none;
     .nav_wrap {
         @include size(1200px, 70px);
         position: fixed;
@@ -68,43 +111,121 @@ a {
     }
     .logo {
         @extend .menu_left;
+        .logo_wrap {
+            @include size(150px, 56px);
+            background: no-repeat url("../images/logo.png");
+        }
     }
     .menu_right {
         @extend .menu_left;
     }
     .icon {
-        @extend .menu_left;
+        @include flex(wrap, center);
+        align-items: center;
+        ul {
+            width: 100%;
+            @include flex(wrap, flex-end);
+            li {
+                padding: 0 20px;
+            }
+        }
     }
 }
+// 헤더 네비게이션 두번째
+.nav_second {
+    @extend .nav;
+    background-color: white;
+    box-shadow: 0px 0px 3px rgb(173, 173, 173);
+    .logo {
+        .logo_wrap {
+            background: no-repeat url("../images/logodark.png");
+            background-size: contain;
+        }
+    }
+    .icon {
+        li {
+            -webkit-filter: invert(100%);
+        }
+    }
+}
+
 // 메인 스와이퍼
 .main {
     @include size(100%, 100%);
     text-align: center;
     .title {
+        font-family: "cinzel";
         position: absolute;
-        @include absolute(30%, 50%);
+        @include absolute(40%, 50%);
         transform: translateX(-50%);
         z-index: 9;
+        color: white;
+        h3 {
+            font-size: 52px;
+        }
+        p {
+            font-size: 18px;
+        }
     }
     .chk {
         z-index: 9;
         position: absolute;
-        @include size(60%, 80px);
-        @include absolute(60%, 50%);
+        @include size(60%, 140px);
+        @include absolute(75%, 50%);
         transform: translateX(-50%);
-        background-color: #072745;
+        background-color: rgba(255, 255, 255, 0.7);
+        @include flex(wrap, space-between);
+        align-items: center;    
+        font-size: 21px;
     }
     .cat {
-        @include size(100%, 100%);
-        @include flex(wrap, space-around);
-        align-items: flex-start;
-        color: white;
+        font-family: cinzel;
+        @include size(70%, 50%);
+        @include flex(wrap, center);
+        text-align: center;
         p {
-            padding-top: 10px;
+            width: 160px;
+            &:nth-child(1) {
+                border-right: 1px solid #000;
+            }
+            &:nth-child(2) {
+                border-right: 1px solid #000;
+            }
+        }
+    }
+    .btn {
+        cursor: pointer;
+        font-family: cinzel;
+        @include size(170px, 50px);
+        line-height: 50px;
+        margin-right: 50px;
+        border: 1px solid #000;
+        p {
+            position: relative;
+            transition: 1s;
+            z-index: 1;
+            &::before {
+                content: "";
+                position: absolute;
+                background-color: #072745;
+                height: 100%;
+                width: 0;
+                top: 0;
+                left: 0;
+                transition: linear .3s;
+                z-index: -1;
+            }
+        }
+        &:hover {
+            color: white;
+            p::before {
+                width: 100%;
+            }
         }
     }
     .swiper-slide {
         @include size(100%, 1089px);
+        z-index: -1;
     }
     .banner1 {
         background:url("../images/banner_main1.jpg");
@@ -115,20 +236,48 @@ a {
         @include background_setting;
     }
     .banner3 {
-        background-color: beige;
         background:url("../images/banner_main3.jpg");
+        @include background_setting;
     }
+    .nav_btn {
+        position: absolute;
+        @include absolute(70%, 50%);
+        transform: translateX(-50%);
+        @include size(280px, 20px);
+        z-index: 99;
+        @include flex(wrap, space-around);
+    }
+    .line {
+        cursor: pointer;
+        position: relative;
+        @include size(80px, 6px);
+        background-color: #999;
+        &.on {
+            &::after {
+                content: "";
+                position: absolute;
+                @include size(0, 100%);
+                @include absolute(0, 0);
+                background-color: white;
+                animation: loading 3s linear forwards;
+            }
+        }
+    }
+}
+@keyframes loading {
+    0%{width: 0;}
+    100%{width: 100%;}
 }
 // rooms
 .rooms {
+    font-family: cinzel;
     background-color: rgb(248, 248, 248);
     @include flex(wrap, flex-start);
     .title {
         @include content_title;
     }
     .content_wrap {
-        display: flex;
-        justify-content: space-between;
+        @include flex(nowrap, space-between);
     }
     // 좌측 컨탠츠
     .item_left {
@@ -147,6 +296,7 @@ a {
             border-radius: 0 50px 50px 0;
         }
         h3 {
+            font-family: nanumR;
             font-size: 26px;
             margin-bottom: 40px;
         }
@@ -155,6 +305,8 @@ a {
         }
         .btn {
             @include content_btn;
+            position: absolute;
+            top: 150px;
         }
     }
     // 스와이퍼 위치 설정
@@ -165,8 +317,7 @@ a {
     }
     // 스와이퍼 설정
     .swiper-wrapper {
-        width: 500px;
-        height: 100%;
+        @include size(500px, 100%);
         .swiper-slide {
             @include size(850px, 530px);
         }
@@ -202,12 +353,13 @@ a {
 }
 // offer
 .offer {
-    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), 
-    url("../images/meeting.jpg");
+    font-family: cinzel;
+    background: linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)), url("../images/meeting.jpg");
     @include background_setting;
     @include flex(wrap, flex-start);
-    color: white;
+    color: rgba(255, 255, 255, 0.5);
     .title {
+        color: white;
         @include content_title;
     }
     .content {
@@ -221,9 +373,11 @@ a {
             @include flex(wrap, space-between);
         }
         li {
+            cursor: pointer;
             position: relative;
             text-align: left;
             width: 190px;
+            padding-top: 3px;
             padding-left: 25px;
             &::before {
                 content: "";
@@ -231,14 +385,23 @@ a {
                 @include absolute(5px, 0);
                 @include size(20px, 20px);
                 border-radius: 50%;
-                background-color: white;
+                background-color: rgba(255, 255, 255, 0.5);
             }
             &::after {
                 content: "";
                 position: absolute;
                 @include size(185px, 3px);
                 @include absolute(-5px, -3px);
-                background-color: white;
+                background-color: rgba(255, 255, 255, 0.5);
+            }
+            &.on {
+                color: white;
+                &::before {
+                    background-color: white;
+                }
+                &::after {
+                    background-color: white;
+                }
             }
         }
     }
@@ -247,6 +410,7 @@ a {
         max-width: 1200px;
         margin-top: 70px;
         font-size: 18px;
+        color: white;
         .text {
             display: none;
             &.on {
@@ -268,6 +432,9 @@ a {
 }
 // 다이닝
 .dining {
+    font-family: cinzel;
+    background: linear-gradient(rgba(255, 255, 255, 0.5), rgba(255, 255, 255, 0.5)), url("../images/dining_back.png");
+    @include background_setting;
     @include flex(wrap, flex-start);
     .title {
         @include content_title;
@@ -312,8 +479,10 @@ a {
 }
 // 프로모션
 .promotion {
+    font-family: cinzel;
     color: white;
-    background: url("../images/background.png");
+    background: linear-gradient(rgba(0, 0, 0, 0.58), rgba(0, 0, 0, 0.58)),
+    url("../images/promo_back.jpg");
     @include background_setting;
     @include flex(wrap, flex-start);
     // 제목 설정
@@ -326,11 +495,47 @@ a {
         @include flex(wrap, flex-start);
     }
     .text {
-        width: 300px;
-        height: 610px;
+        @include size(300px, 610px);
         background-color: white;
-        p {
+        color: black;
+        @include flex(wrap, space-around);
+        font-family: nanumR;
+        margin: 0 auto;
+        text-align: center;
+        .content_wrap {
+            display: none;
+            margin: 0 auto;
+            width: 80%;
+            margin-top: 100px;
+            margin: 60px auto 50px;
+            &.on {
+                @include flex(wrap, space-around);
+                flex-direction: column; 
+            }
+            h3 {
+                font-family: cinzel;
+                padding-bottom: 100px;
+            }
+            p {
+                font-family: nanumR;
+            }
+        }
+        .reserve {
+            width: 90%;
+            @include flex(wrap, flex-start);
+            flex-direction: column;
+        }
+        .promo_btn {
+            @include content_btn;
+            font-family: cinzel;
+            border: 1px solid #000;
+            margin-bottom: 60px;
             color: black;
+            &:hover {
+                p {
+                    color: white;
+                }
+            }
         }
     }
     // 스와이퍼 설정
@@ -357,4 +562,7 @@ a {
             }
         }
     }
+}
+.map {
+    background-color: black;
 }
