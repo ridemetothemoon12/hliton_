@@ -42,10 +42,11 @@ $('document').ready(function() {
         $('.line').removeClass("on");
         $('.line').eq(slideIndex).addClass("on");
     });
+
     $(".line").click(function() {
         let i = $(this).index();
         swiper.slideTo(i+1)
-    })
+    });
     
     swiper_1.on("transitionEnd", function(e) {
         let textArr = ["비스타 듀플렉스","파크힐 듀플렉스","남대문 듀플렉스"];
@@ -72,4 +73,4 @@ $('document').ready(function() {
         $(".description .text").eq(j).addClass("on");
         swiper_3.slideTo(j);
     })
-})
+})  
