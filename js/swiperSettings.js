@@ -18,6 +18,7 @@ $('document').ready(function() {
         },
         pagination: {
             el: ".swiper-pagination",
+            clickable: true
         }
     })
     const swiper_2 = new Swiper(".swiper_content_2", {
@@ -30,6 +31,7 @@ $('document').ready(function() {
         },
         pagination: {
             el: ".swiper-pagination",
+            clickable: true
         }
     })
     const swiper_3 = new Swiper(".swiper_content_background", {
