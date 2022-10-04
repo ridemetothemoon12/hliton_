@@ -1,0 +1,56 @@
+[
+    {   
+        "id": 1,
+        "img" : "images/room1.jpg",
+        "mainTitle" : "DELUXE MOUNTAIN VIEW1",
+        "subTitle" : "디럭스 마운틴 뷰",
+        "subText1" : "성인기준 2인",
+        "subText2" : "3층 (원목마루)",
+        "subText3" : "침실1, 침실2, 욕실, 화장실, 거실, 발코니, 자쿠지실"
+    },
+    {   
+        "id": 2,
+        "img" : "images/room2.jpg",
+        "mainTitle" : "PREMIUM DERUX ROOM",
+        "subTitle" : "프리미엄 디럭스  룸",
+        "subText1" : "성인기준 4인",
+        "subText2" : "5층 (100% 울 카펫)",
+        "subText3" : "침실1,욕실, 화장실, 거실, 야외발코니"
+    },
+    {   
+        "id": 3,
+        "img" : "images/room3.jpg",
+        "mainTitle" : "SWEET ROOM",
+        "subTitle" : "스위트",
+        "subText1" : "성인기준 2인",
+        "subText2" : "2층 (원목마루)",
+        "subText3" : "침실1, 침실2, 욕실, 화장실, 발코니"
+    },
+    {   
+        "id": 4,
+        "img" : "images/room4.jpg",
+        "mainTitle" : "GUEST ROOM",
+        "subTitle" : "게스트 룸",
+        "subText1" : "성인기준 2인/최대4인",
+        "subText2" : "6층 (100% 울 카쳇)",
+        "subText3" : "침실1, 욕실, 화장실, 거실, 발코니, 자쿠지실"
+    },
+    {   
+        "id": 5,
+        "img" : "images/room5.jpg",
+        "mainTitle" : "EXECUTIVE ROOM",
+        "subTitle" : "이그제큐티브 룸",
+        "subText1" : "성인기준 3인 / 최대 5인",
+        "subText2" : "6-7층 (원목마루)",
+        "subText3" : "화장실, 거실, 발코니, 자쿠지실"
+    },
+    {   
+        "id": 6,
+        "img" : "images/room6.jpg",
+        "mainTitle" : "EXECUTIVE MOUNTAIN",
+        "subTitle" : "이그제큐티브 마운틴",
+        "subText1" : "성인기준 2인",
+        "subText2" : "1층 (원목마루)",
+        "subText3" : "침실1, 침실2, 욕실, 화장실, 거실, 발코니, 자쿠지실"
+    }
+]
