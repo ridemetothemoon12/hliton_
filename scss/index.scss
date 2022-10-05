@@ -235,6 +235,24 @@ a {
         @extend .left;
         margin-left: 5px;
     }
+    a {
+        position: relative;
+        color: black;
+        &::after {
+            content: "";
+            position: absolute;
+            background-color: black;
+            scale: 0;
+            transition: .3s;
+            @include size(100%, 1px);
+            @include absolute(19px, 0);
+        }
+    }
+    li:hover {
+        a::after {
+            scale: 1;
+        }
+    }
 }
 // 메인 스와이퍼
 .main {

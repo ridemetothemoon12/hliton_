@@ -1,7 +1,7 @@
 $('document').ready(function() {
-    $('.menu').hover(function() {
+    $('.menu, .nav_expand').hover(function() {
         $('.nav_expand').stop().animate({
-            height: "300px"
+            height: "350px"
         },300)
         $('.nav').addClass("on")
     }, function() {
