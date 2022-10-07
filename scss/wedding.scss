@@ -275,22 +275,6 @@ a {
                         height: 100%;
                         background-color: #072745;
                     }
-                    // &::after {
-                    //     content: "";
-                    //     position: absolute;
-                    //     @include absolute(0, 0);
-                    //     @include size(0%, 100%);
-                    // }
-                    // &.on::after {
-                    //     content: "";
-                    //     position: absolute;
-                        
-                    //     transition: 3s;
-                    //     @include absolute(0, 0);
-                    //     @include size(100%, 100%);
-                    //     background-color: #072745;
-                    //     // animation: loader 3s linear forwards;
-                    // }
                 }
             }
             .loading_num {
