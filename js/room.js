@@ -1,4 +1,14 @@
 $('document').ready(function() {
+
+
+    $('.title_wrap span').each(function(i) {
+        let thisAction = $(this);
+        setTimeout(() => {
+            thisAction.addClass("active");
+        }, i*300);
+    })
+    $('p').addClass("active");
+
     $('.menu, .nav_expand').hover(function() {
         $('.nav_expand').stop().animate({
             height: "350px"

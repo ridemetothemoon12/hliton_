@@ -637,7 +637,7 @@ a {
             .bottom {
                 transition: .3s;
                 position: absolute;
-                @include absolute(0, 0);
+                @include absolute(-20px, 0);
                 @include size(280px, 280px);
                 @include flex(wrap, center);
                 align-items: center;
@@ -651,7 +651,7 @@ a {
                 }
                 .btn {
                     @include content_btn;
-                    margin-top: 30px;
+                    margin-top: 20px;
                     width: 150px;
                     font-size: 14px;
                     p {
