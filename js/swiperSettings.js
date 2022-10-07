@@ -75,4 +75,70 @@ $('document').ready(function() {
         $(".description .text").eq(j).addClass("on");
         swiper_3.slideTo(j);
     })
+
+    const swiper_wedding = new Swiper(".swiper_wedding", {
+        effect: "slide",
+        slidesPerView: "auto",
+        spaceBetween: 90,
+        loop: true,
+        centeredSlides:true,
+        speed:500,
+        autoplay: {
+            delay: 2500,
+            disableOnInteraction: false
+        },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true
+        },
+        //     on: {
+        //     init: function () {
+        //         $(".bar").eq(slideIndex).addClass("on")
+        //     }
+        // }
+    })
+    $(".bar .bar-wrap").stop().animate({
+        width: "70px"
+    }, 3000)
+
+    let slichk = true;
+
+    swiper_wedding.on("transitionEnd", function(e){
+        var slideIndex = swiper_wedding.realIndex;
+        var sindex = $('.swiper-slide-active').data("swiper-slide-index");
+  
+        // console.log(slideIndex)
+        if(slideIndex == 0){
+            if(slichk == true){
+                return
+            }
+            $(".bar .bar-wrap").css("width", 0).stop().animate({
+                width: (slideIndex+1) * 70 + "px"
+            }, 3000)
+            slichk = true
+
+
+        }else if(slideIndex == 2){
+            $(".bar .bar-wrap").css("width", (slideIndex) * 70 + "px")
+            $(".bar .bar-wrap").stop().animate({
+                width: (slideIndex+1) * 70 + "px"
+            }, 3000)
+            slichk = false
+        }else{
+            $(".bar .bar-wrap").css("width", (slideIndex) * 70 + "px")
+
+            $(".bar .bar-wrap").stop().animate({
+                width: (slideIndex+1) * 70 + "px"
+            }, 3000)
+        }
+        console.log(slideIndex)
+        
+    });
+    
+    swiper_wedding.on("transitionEnd", function(e){ 
+        let thisIndex = e.realIndex;
+        $('.first').text("")
+        $('.first').append("0" + (thisIndex+1));
+    });
+
 })  

@@ -1,6 +1,4 @@
 $('document').ready(function() {
-
-
     $('.title_wrap span').each(function(i) {
         let thisAction = $(this);
         setTimeout(() => {

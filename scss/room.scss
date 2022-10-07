@@ -288,7 +288,7 @@ a {
         align-items: center;
         text-align: center;
         @include flex(wrap, center);
-        font-size: 55px;
+        font-size: 44px;
     }
 }
 
@@ -301,7 +301,7 @@ a {
         margin: 0 auto;
     }
     .title {
-        font-size: 36px;
+        font-size: 28px;
     }
     .text {
         margin-top: 30px;
@@ -321,11 +321,10 @@ a {
             &::after {
                 content: "";
                 position: absolute;
-                @include size(10px, 10px);
+                @include size(8px, 8px);
                 background-color: #072745;
-                left: -15px;
-                top: 50%;
-                transform: translateY(-50%);
+                left: -20px;
+                top: 18px;
             }
         }
     }
