@@ -91,11 +91,6 @@ $('document').ready(function() {
             el: ".swiper-pagination",
             clickable: true
         },
-        //     on: {
-        //     init: function () {
-        //         $(".bar").eq(slideIndex).addClass("on")
-        //     }
-        // }
     })
     $(".bar .bar-wrap").stop().animate({
         width: "70px"
@@ -105,9 +100,6 @@ $('document').ready(function() {
 
     swiper_wedding.on("transitionEnd", function(e){
         var slideIndex = swiper_wedding.realIndex;
-        var sindex = $('.swiper-slide-active').data("swiper-slide-index");
-  
-        // console.log(slideIndex)
         if(slideIndex == 0){
             if(slichk == true){
                 return
