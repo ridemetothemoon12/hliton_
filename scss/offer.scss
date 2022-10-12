@@ -45,7 +45,7 @@ a {
     @include size(180px, 45px);
     margin-top: 30px;
     background-color: rgba(201, 201, 195, 0.1);
-    border: 1px solid black;
+    border: 1px solid white;
     text-align: center;
     line-height: 45px;
     font-size: 16px;
@@ -76,7 +76,7 @@ a {
 .header {
     font-family: "cinzelR";
     @include size(100%, 960px);
-    background: url("../images/room_banner.jpg");
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../images/offer_banner.png");
     background-size: cover;
     background-position: center;
     .header_wrap {
@@ -99,7 +99,6 @@ a {
                 transform: translateY(100%);
                 &.active {
                     transform: translateY(0px);
-
                 }
             }
             .down {               
@@ -224,13 +223,13 @@ a {
         }
     }
 }
-
 .content_1 {
-    max-width: 1200px;
-    margin: 125px auto 0;
+    font-family: "cinzelM";
+    width: 100%;
+    @include flex(wrap, center);
+    text-align: center;
+    // align-items: center;
     .title {
-        text-align: center;
-        font-family: cinzelR;
         margin-top: 115px;
         margin-bottom: 100px;
         font-size: 40px;
@@ -248,103 +247,167 @@ a {
         }
     }
     .title_sub {
-        text-align: center;
         font-family: nanumR;
         line-height: 36px;
         width: 710px;
         font-size: 18px;
-        margin: 0 auto;
         margin-bottom: 115px;
-    }
-    .item {
-        font-family: "cinzelM";
-        @include size(100%, 450px);
-        margin-top: 125px;
-        display: flex;
-        border: 1px solid #000;
-        box-shadow: (0px 0px 10px rgb(212, 212, 212));
-        img {
-            width: 740px;
-            height: 450px;
-        }
-        .right {
-            @include size(480px, 100%);
-            @include flex(wrap, center);
-            align-items: center;
-            .right_wrap {
-                @include size(80%, 80%);
-            }
-            h3 {
-                font-size: 24px;
-            }
-            p {
-                font-family: "nanumR";
-            }
-            .text {
-                .sub_title {
-                    margin-top: 30px;
-                    font-weight: bold;
-                }
-                font-size: 17px;
-            }
-            .btn {
-                @include content_btn;
-            }
-        }
     }
 }
 
 .content_2 {
-    font-family: "nanumR";
-    margin-top: 125px;
-    @include size(100%, 480px);
-    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), url("../images/room_dining.jpg");
-    color: white;
-    background-size: cover;
-    background-position: center;
+    margin-top: 150px;
+    @include size(100%, auto);
     .content_wrap {
-        height: 480px;
-        align-items: center;
+        max-width: 1200px;
+        height: fit-content;
+        @include flex(wrap, space-between);
+        margin: 0 auto;
+    }
+    .item {
+        @include size(280px, 490px);
+        overflow: hidden;
+        position: relative;
+        &:nth-child(1) {
+            .img_wrap {
+                background: url("../images/meeting.jpg");
+                background-size: cover;
+                background-position: center;
+            }
+        }
+        &:nth-child(2) {
+            .img_wrap {
+                background: url("../images/pool.png");
+                background-size: cover;
+                background-position: center;
+            }
+        }
+        &:nth-child(3) {
+            .img_wrap {
+                background: url("../images/lounge.jpg");
+                background-size: cover;
+                background-position: center;
+            }
+        }
+        &:nth-child(4) {
+            .img_wrap {
+                background: url("../images/casino.jpg");
+                background-size: cover;
+                background-position: center;
+            }
+        }
+        &:hover {
+            .img_wrap {
+                scale: 1.05;
+            }
+            p {
+                background-color: transparent;
+            }
+        }
+    }
+    .img_wrap {
+        @include size(100%, 100%);
+        background-size: cover;
+        background-position: center;
+        transition: .3s;
+    }
+    p {
+        font-family: cinzelR;
+        font-size: 25px;
+        position: absolute;
+        @include size(100%, 100%);
+        background-color: rgba(0, 0, 0, 0.4);
+        z-index: 1;
         text-align: center;
-        @include flex(wrap, center);
-        font-size: 30px;
+        line-height: 490px;
+        color: white;
+        transition: .3s;
     }
 }
 
 .content_3 {
-    font-family: "nanumR";
-    margin-top: 125px;
-    @include size(100%, 340px);
+    margin-top: 150px;
+    @include size(100%, 500px);
+    background: no-repeat url("../images/spa.jpg");
+    background-size: cover;
+    background-position: center;
+    .content_wrap {
+        max-width: 1200px;
+        height: 100%;
+        margin: 0 auto;
+        position: relative;
+    }
+    .item {
+        position: absolute;
+        @include size(390px, 460px);
+        @include absolute(90px, 700px);
+        @include flex(wrap, center);
+        align-items: center;
+        background-color: rgba(7, 39, 69, 0.9);
+        color: white;
+    }
+    .text_wrap {
+        @include size(70%, 70%);
+        h3 {
+            font-size: 30px;
+            font-family: cinzelR;
+            margin-bottom: 70px;
+        }
+        p {
+            font-size: 14px;
+            font-family: nanumR;
+            line-height: 30px;
+            margin-bottom: 65px;
+        }
+    }
+    .button {
+        p {
+            color: white;
+            line-height: 45px;
+        }
+        @include content_btn;
+    }
+}
+
+.content_4 {
+    margin-top: 150px;
     .content_wrap {
         max-width: 1200px;
         margin: 0 auto;
     }
-    .title {
-        font-size: 28px;
-    }
-    .text {
-        margin-top: 30px;
-        display: flex;
-        background-color: #f8f8f8;
-        height: 290px;
-        flex-wrap: wrap;
-        justify-content: flex-start;
-        align-items: center;
-        ul {
-            font-size: 24px;
-            margin-left: 50px;
+    .item {
+        @include flex(wrap, space-between);
+        &:nth-child(even) {
+            flex-direction: row-reverse;
         }
-        li {
-            position: relative;
-            padding: 10px 0;
-            &::after {
-                content: "";
-                position: absolute;
-                @include size(8px, 8px);
-                background-color: #072745;
-                left: -20px;
-                top: 18px;
+    }
+    .img_wrap {
+        @include size(600px, 370px);
+        overflow: hidden;
+        img {
+            transition: .3s;
+        }
+        &:hover {
+            img {
+                scale: 1.05;
             }
+        }
+    }
+    .text_wrap {
+        @include size(600px, 370px);
+        @include flex(wrap, center);
+        align-items: center;
+        text-align: center;
+        .text_content_wrap {
+            @include size(80%, fit-content);
+        }
+        h3 {
+            font-family: cinzelR;
+            font-size: 32px;
+        }
+        p {
+            font-family: nanumR;
+            font-size: 14px;
         }
     }
 }
@@ -377,7 +440,6 @@ a {
             background-color: white;
         }
     }
-
     .bottom {
         width: 65%;
         margin: 0 auto;
