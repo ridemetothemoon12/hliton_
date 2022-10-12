@@ -30,7 +30,5 @@ $('document').ready(function() {
 
     $(".item").hover(function() {
         $(this).css("background-size", "102% 102%");
-    }, function() {
-        $(this).css("background-size", "100% 100%");
     })
 })
