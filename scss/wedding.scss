@@ -61,7 +61,7 @@ a {
         &::before {
             content: "";
             position: absolute;
-            background-color: #072745;
+            background-color: white;
             @include size(0, 100%);
             @include absolute(0, 0);
             transition: linear .3s;
@@ -69,8 +69,8 @@ a {
         }
     }
     &:hover {
-        border: 1px solid white;
-        color: white;
+        border: 1px solid #072745;
+        color: #072745;
         p::before {
             width: 100%;
         }
@@ -191,8 +191,19 @@ a {
             &:last-child::after {
                 width: 0;
             }
+            &:nth-child(2) {
+                h3 {
+                    padding-left: 5px;
+                    text-align: left;
+                }
+                h3::after {
+                    position: absolute;
+                    content: "㎡";
+                }
+            }
         }
         h3 {
+            position: relative;
             font-family: nanumEB;
             font-size: 44px;
         }

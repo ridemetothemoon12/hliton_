@@ -26,5 +26,26 @@ $('document').ready(function() {
         else {
             $(".nav").css("background-color", "transparent");
         }
+        if($(window).scrollTop() > 1050) {
+            counter();
+        }
     })
+    
+    let once = false
+    function counter() {
+        if(once == false) {
+            $('.count').each(function () {
+                $(this).prop('Counter', 0).animate({
+                    Counter: $(this).text()
+                }, {
+                duration: 2000,
+                easing: 'swing',
+                step: function (now) {
+                    $(this).text(Math.ceil(now));
+                }
+            });
+        });
+    }
+    once = true
+    }
 })
