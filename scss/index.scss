@@ -289,12 +289,53 @@ a {
         @include flex(wrap, center);
         text-align: center;
         p {
+            position: relative;
             width: 160px;
             &:nth-child(1) {
                 border-right: 1px solid #000;
             }
             &:nth-child(2) {
                 border-right: 1px solid #000;
+            }
+            &:nth-child(1)::after {
+                content: "10월 25일";
+                width: 100%;
+                top: 60%;
+                left: 0;
+                position: absolute;
+                font-size: 18px;
+            }
+            &:nth-child(2)::after {
+                content: "10월 28일";
+                width: 100%;
+                top: 60%;
+                left: 0;
+                position: absolute;
+                font-size: 18px;
+            }
+            &:nth-child(3)::after {
+                content: "1";
+                width: 100%;
+                top: 60%;
+                left: 0;
+                position: absolute;
+                font-size: 18px;
+            }
+            &:nth-child(4)::after {
+                content: "2";
+                width: 100%;
+                top: 60%;
+                left: 0;
+                position: absolute;
+                font-size: 18px;
+            }
+            &:nth-child(5)::after {
+                content: "1";
+                width: 100%;
+                top: 60%;
+                left: 0;
+                position: absolute;
+                font-size: 18px;
             }
         }
     }
